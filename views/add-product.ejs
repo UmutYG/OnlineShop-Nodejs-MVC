@@ -3,12 +3,23 @@
  
 
 <form action="/add-product" method="post">
-  <label for="inputPassword5" class="form-label">Ürün ismi</label>
+  <label for="inputPassword5" class="form-label">Product Name</label>
   <input
     type="text"
-    id="inputPassword5"
     class="form-control"
     name="productName"
+  />
+  <label for="inputPassword5" class="form-label">Description</label>
+  <textarea
+    type="text"
+    class="form-control"
+    name="description"
+  ></textarea>
+  <label for="inputPassword5" class="form-label">Price</label>
+  <input
+    type="text"
+    class="form-control"
+    name="price"
   />
   <button type="submit">Ekle</button>
 </form>

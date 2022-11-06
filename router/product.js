@@ -1,20 +1,10 @@
-
-const express = require('express');
-
-const data = require('../app');
-const products = ["dsşal", "dafa"];
+const express = require("express");
 
 const router = express.Router();
 
-router.get('/add-product', (req, res, next) => {
-    res.render('add-product', {title : 'Add Product'});
-});
+const productsController = require('../controllers/product');
+router.get("/add-product", productsController.getAddProduct);
 
-router.post('/add-product', (req, res, next) => {
-    console.log(data, 'is dataaa');
-    products.push({ title : req.body.productName});
-});
+router.post("/add-product", productsController.postAddProduct);
 
-exports.router = router;
-exports.products = products;
-
+module.exports = router;
