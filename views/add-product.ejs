@@ -1,0 +1,15 @@
+<%- include('./includes/header.ejs')  %> 
+<%- include('./includes/navbar.ejs')  %> 
+ 
+
+<form action="/add-product" method="post">
+  <label for="inputPassword5" class="form-label">Ürün ismi</label>
+  <input
+    type="text"
+    id="inputPassword5"
+    class="form-control"
+    name="productName"
+  />
+  <button type="submit">Ekle</button>
+</form>
+<%- include('./includes/ending.ejs')  %> 
