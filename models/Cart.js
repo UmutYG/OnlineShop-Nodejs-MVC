@@ -8,16 +8,25 @@ module.exports = class Cart {
       if (!err) {
         cb(JSON.parse(fileContent));
       } else {
-        cb({ productIds: [], totalPrice: 0 });
+        cb({ cartProducts: [], totalPrice: 0 });
       }
     });
   }
 
-  static addProduct(id) {
-    this.readCartFile((data) => {
-      data.productIds.push(id);
-      fs.writeFile(filePath, JSON.stringify(data), (err) => {
-        console.log("Error status on writing cart", err);
+  static addProduct(id, price) {
+    this.readCartFile((cartData) => {
+      const existProduct = cartData.cartProducts.find((cp) => {
+        return cp.pId === id;
+      });
+      if (existProduct) {
+        existProduct.quantity += 1;
+      } else {
+        cartData.cartProducts.push({ pId: id, quantity: 1 });
+      }
+      cartData.totalPrice += +price;
+
+      fs.writeFile(filePath, JSON.stringify(cartData), (err) => {
+        // console.log("Error status on writing cart", err);
       });
     });
   }

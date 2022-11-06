@@ -1,13 +1,32 @@
 <%- include('./includes/header.ejs') %>
 <body>
   <%- include('./includes/navbar.ejs') %>
-  <ul class="list-group">
-    <% for( let product of cartProducts ) { %>
-      <li class="list-group-item"><%= product.name %> </li>
-    
-    <% } %>
+  <ul class="list-group" style="width: 24rem;"> 
+     <% for( let product of cartProducts ) { %>
+      <div class="card mb-3" style="max-width: 540px;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://cdn-icons-png.flaticon.com/512/2479/2479867.png" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %> </h5>
+              <p class="card-text"><%= product.description %></p>
+              <p class="card-text"><small class="text-muted"><%= product.price %>$</small></p>
+            </div>
+            
+          </div>
+        </div>
+        <div class="col-md-2" style="position: absolute; right: 25%; top:30%;">
+          <span class="badge bg-primary rounded-pill"><%= product.quantity %> </span>
+        </div>
+      </div>
+        <% } %>
 
-  </ul>
-    </div> <%- include('./includes/ending.ejs') %>
+
+  </ul> <%- include('./includes/ending.ejs') %>
+  <div class="badge bg-primary text-wrap" style="width: 12rem;">
+    Total Price = <%= totalPrice %>$
+  </div>
   </div>
 </body>

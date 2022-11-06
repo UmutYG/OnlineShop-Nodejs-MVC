@@ -13,7 +13,7 @@ const getProductsFromFile = (callback) => {
       callback([]);
     }
   });
-}
+};
 
 module.exports = class Product {
   constructor(id = "", name = "", description = "", price = "") {
@@ -23,15 +23,13 @@ module.exports = class Product {
     this.price = price;
   }
 
-  
-
   save() {
-    getProductsFromFile(products=> {
+    getProductsFromFile((products) => {
       products.push(this);
       fs.writeFile(filePath, JSON.stringify(products), (err) => {
         // still prints error without error
       });
-    })
+    });
   }
 
   static fetchAll(cb) {
@@ -39,8 +37,8 @@ module.exports = class Product {
   }
 
   static getById(id, cb) {
-    getProductsFromFile(products => {
-      const product = products.find(p => p.id === id);
+    getProductsFromFile((products) => {
+      const product = products.find((p) => p.id === id);
       cb(product);
     });
   }
