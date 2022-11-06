@@ -1,0 +1,13 @@
+<%- include('./includes/header.ejs') %>
+<body>
+  <%- include('./includes/navbar.ejs') %>
+  <ul class="list-group">
+    <% for( let product of cartProducts ) { %>
+      <li class="list-group-item"><%= product.name %> </li>
+    
+    <% } %>
+
+  </ul>
+    </div> <%- include('./includes/ending.ejs') %>
+  </div>
+</body>
