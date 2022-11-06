@@ -1,6 +1,6 @@
 <%- include('./includes/header.ejs') %>
 <body>
-  <%- include('./includes/navbar.ejs') %> <% for( let product of products) { %>
+  <%- include('./includes/navbar.ejs') %>
   <div class="d-flex">
     <div class="card m-3" style="width: 18rem">
       <img
@@ -12,9 +12,7 @@
         <h5 class="card-title"><%= product.name %></h5>
         <p class="card-text"><%= product.description %></p>
         <p class="card-text"><%= product.price %></p>
-        <a href="/product/<%= product.id %> " class="btn btn-primary">Details</a>
       </div>
-    </div>
-    <% } %> <%- include('./includes/ending.ejs') %>
+    </div> <%- include('./includes/ending.ejs') %>
   </div>
 </body>

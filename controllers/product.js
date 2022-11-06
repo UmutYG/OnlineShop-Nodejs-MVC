@@ -20,4 +20,11 @@ exports.postAddProduct = (req, res, next) => {
   
 };
 
+exports.getProductDetails = (req, res, next) => {
+  const pId = req.params.id;
+  Product.getById(pId, product => {
+    res.render('product-details', {product : product});
+  })
+
+}
 
